@@ -1,10 +1,6 @@
-﻿using System.Text;
-using CounterStrikeSharp.API.Core;
+﻿using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
-using CounterStrikeSharp.API.Modules.Utils;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using CounterStrikeSharp.API;
 
@@ -19,10 +15,12 @@ namespace K4ryuuSteamRestrict
 			public int CSGOPlaytime { get; set; }
 			public bool IsPrivate { get; set; }
 			public bool HasPrime { get; set; }
+			public bool IsTradeBanned { get; set; }
+			public bool IsGameBanned { get; set; }
 		}
 
 		public override string ModuleName => "Steam Restrict";
-		public override string ModuleVersion => "1.0.0";
+		public override string ModuleVersion => "1.1.0";
 		public override string ModuleAuthor => "K4ryuu";
 
 		public override void Load(bool hotReload)
@@ -103,6 +101,32 @@ namespace K4ryuuSteamRestrict
 				{
 					Server.ExecuteCommand($"kickid {player.UserId} \"You have been kicked for not meeting the minimum requirements.\"");
 				}
+
+				string tradeBanUrl = $"https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key={steamWebAPIKey}&steamids={steamId}";
+				HttpResponseMessage tradeBanResponse = await httpClient.GetAsync(tradeBanUrl);
+
+				if (tradeBanResponse.IsSuccessStatusCode)
+				{
+					string tradeBanJson = await tradeBanResponse.Content.ReadAsStringAsync();
+					ParseTradeBanStatus(tradeBanJson, userInfo);
+				}
+				else
+				{
+					userInfo.IsTradeBanned = false;
+				}
+
+				string gameBanUrl = $"https://api.steampowered.com/ISteamUser/GetUserGameBan/v1/?key={steamWebAPIKey}&steamids={steamId}";
+				HttpResponseMessage gameBanResponse = await httpClient.GetAsync(gameBanUrl);
+
+				if (gameBanResponse.IsSuccessStatusCode)
+				{
+					string gameBanJson = await gameBanResponse.Content.ReadAsStringAsync();
+					ParseGameBanStatus(gameBanJson, userInfo);
+				}
+				else
+				{
+					userInfo.IsGameBanned = false;
+				}
 			}
 
 			return userInfo;
@@ -130,6 +154,16 @@ namespace K4ryuuSteamRestrict
 			}
 
 			if (CFG.config.BlockPrivateProfile && userInfo.IsPrivate)
+			{
+				isViolated = true;
+			}
+
+			if (CFG.config.BlockTradeBanned && userInfo.IsTradeBanned)
+			{
+				isViolated = true;
+			}
+
+			if (CFG.config.BlockGameBanned && userInfo.IsGameBanned)
 			{
 				isViolated = true;
 			}
@@ -200,6 +234,44 @@ namespace K4ryuuSteamRestrict
 			catch (Exception ex)
 			{
 				Console.WriteLine($"Error parsing Steam user info: {ex.Message}");
+			}
+		}
+
+		private void ParseTradeBanStatus(string json, SteamUserInfo userInfo)
+		{
+			try
+			{
+				JObject data = JObject.Parse(json);
+				JArray playerBans = (data["players"] as JArray)!;
+
+				if (playerBans != null && playerBans.Count > 0)
+				{
+					var playerBan = playerBans[0];
+					userInfo.IsTradeBanned = (bool)playerBan["CommunityBanned"]!;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Error parsing trade ban status: {ex.Message}");
+			}
+		}
+
+		private void ParseGameBanStatus(string json, SteamUserInfo userInfo)
+		{
+			try
+			{
+				JObject data = JObject.Parse(json);
+				JArray userGameBans = (data["players"] as JArray)!;
+
+				if (userGameBans != null && userGameBans.Count > 0)
+				{
+					var userGameBan = userGameBans[0];
+					userInfo.IsGameBanned = (bool)userGameBan["IsGameBanned"]!;
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine($"Error parsing game ban status: {ex.Message}");
 			}
 		}
 	}

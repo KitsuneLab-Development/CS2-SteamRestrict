@@ -54,4 +54,6 @@ internal class Config
 	public int MinimumLevelPrime { get; set; }
 	public bool BlockPrivateProfile { get; set; }
 	public bool BlockNonPrime { get; set; }
+	public bool BlockTradeBanned { get; set; }
+	public bool BlockGameBanned { get; set; }
 }
