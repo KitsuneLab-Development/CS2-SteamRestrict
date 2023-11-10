@@ -1,28 +1,28 @@
 <a name="readme-top"></a>
 
-![GitHub tag (with filter)](https://img.shields.io/github/v/tag/K4ryuu/Project_Template?style=for-the-badge&label=Version)
-![GitHub Repo stars](https://img.shields.io/github/stars/K4ryuu/Project_Template?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/K4ryuu/Project_Template?style=for-the-badge)
-![GitHub](https://img.shields.io/github/license/K4ryuu/Project_Template?style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/K4ryuu/Project_Template?style=for-the-badge)
-![GitHub all releases](https://img.shields.io/github/downloads/K4ryuu/Project_Template/total?style=for-the-badge)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/K4ryuu/Project_Template/dev?style=for-the-badge)
+![GitHub tag (with filter)](https://img.shields.io/github/v/tag/K4ryuu/CS2_SteamRestrict?style=for-the-badge&label=Version)
+![GitHub Repo stars](https://img.shields.io/github/stars/K4ryuu/CS2_SteamRestrict?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/K4ryuu/CS2_SteamRestrict?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/K4ryuu/CS2_SteamRestrict?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/K4ryuu/CS2_SteamRestrict?style=for-the-badge)
+![GitHub all releases](https://img.shields.io/github/downloads/K4ryuu/CS2_SteamRestrict/total?style=for-the-badge)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/K4ryuu/CS2_SteamRestrict/dev?style=for-the-badge)
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <h1 align="center">K4ryuu</h1>
-  <h3 align="center">PLACE OF TITLE</h3>
+  <h3 align="center">CS2 Chat Relay</h3>
 
   <p align="center">
     An awesome CS2 server addon created with <a href="https://github.com/roflmuffin/CounterStrikeSharp"><strong>CounterStrikeSharp</strong></a>
     <br />
     <br />
-    <a href="https://github.com/K4ryuu/Project_Template/releases">Download</a>
+    <a href="https://github.com/K4ryuu/CS2_SteamRestrict/releases">Download</a>
     ·
-    <a href="https://github.com/K4ryuu/Project_Template/issues/new?assignees=K4ryuu&labels=bug&projects=&template=bug_report.md&title=%5BBUG%5D">Report Bug</a>
+    <a href="https://github.com/K4ryuu/CS2_SteamRestrict/issues/new?assignees=K4ryuu&labels=bug&projects=&template=bug_report.md&title=%5BBUG%5D">Report Bug</a>
     ·
-    <a href="https://github.com/K4ryuu/Project_Template/issues/new?assignees=K4ryuu&labels=enhancement&projects=&template=feature_request.md&title=%5BREQ%5D">Request Feature</a>
+    <a href="https://github.com/K4ryuu/CS2_SteamRestrict/issues/new?assignees=K4ryuu&labels=enhancement&projects=&template=feature_request.md&title=%5BREQ%5D">Request Feature</a>
   </p>
 </div>
 
@@ -62,7 +62,7 @@
 
 ## About The Project
 
-DESCRIPTION HERE
+Enhance your game server's control with this plugin. Fetch and analyze player data from their Steam profiles, enforce minimum CS:GO playtime and Steam level requirements, and customize restrictions for Prime and non-Prime players. Flexible and powerful server management tool.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -71,7 +71,6 @@ DESCRIPTION HERE
 To use this server addon, you'll need the following dependencies installed:
 
 - [**CounterStrikeSharp**](https://github.com/roflmuffin/CounterStrikeSharp/actions/workflows/cmake-single-platform.yml): CounterStrikeSharp allows you to write server plugins in C# for Counter-Strike 2/Source2/CS2
-- **MySQL Database (Version 5.2 or higher):** This project requires a MySQL database to store and manage data. You can host your own MySQL server or use a third-party hosting service. Make sure it's at least version 5.2 or higher.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,13 +105,12 @@ Before you begin, ensure you have the following prerequisites:
 
 - A working CS2 (Counter-Strike 2) server.
 - CounterStrikeSharp is up to date and is running on your server.
-- A compatible MySQL database (Version 5.2 or higher) set up and configured.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Installation
 
-1. **Download the Addon:** Start by downloading the addon from the [GitHub Releases Page](https://github.com/K4ryuu/Project_Template/releases). Choose the latest release version.
+1. **Download the Addon:** Start by downloading the addon from the [GitHub Releases Page](https://github.com/K4ryuu/CS2_SteamRestrict/releases). Choose the latest release version.
 
 2. **Extract the Addon:** After downloading, extract the contents of the addon to the counterstrikesharp/plugins directory on your server. Inside the plugins folder, you should have a folder named exactly as the project dll. From the releases, you find it pre zipped with the correct name.
 
@@ -128,13 +126,13 @@ The addon provides several commands and console variables (convars) to customize
 
 ### Commands
 
-- **Command 1:** Describe the first command and how to use it.
+- None
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Console Variables (Convars)
 
-- **Convar 1:** Describe the first convar and how to set its value.
+- None
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,7 +140,7 @@ The addon provides several commands and console variables (convars) to customize
 
 ## Roadmap
 
-- [ ] No plans for now
+- [ ] No plans yet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
