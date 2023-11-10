@@ -6,7 +6,7 @@ using CounterStrikeSharp.API;
 
 namespace K4ryuuSteamRestrict
 {
-	[MinimumApiVersion(16)]
+	[MinimumApiVersion(28)]
 	public class SteamRestrictPlugin : BasePlugin
 	{
 		public class SteamUserInfo
