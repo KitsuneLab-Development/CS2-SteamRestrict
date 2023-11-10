@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <h1 align="center">K4ryuu</h1>
-  <h3 align="center">CS2 Chat Relay</h3>
+  <h3 align="center">CS2 Steam Restrict</h3>
 
   <p align="center">
     An awesome CS2 server addon created with <a href="https://github.com/roflmuffin/CounterStrikeSharp"><strong>CounterStrikeSharp</strong></a>
