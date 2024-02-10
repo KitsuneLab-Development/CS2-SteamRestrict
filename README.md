@@ -8,6 +8,10 @@
 ![GitHub all releases](https://img.shields.io/github/downloads/K4ryuu/CS2_SteamRestrict/total?style=for-the-badge)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/K4ryuu/CS2_SteamRestrict/dev?style=for-the-badge)
 
+> [!CAUTION]
+> The plugin has been given to my friend @Cruze03 so he's going to continue it on his GitHub page.
+> https://github.com/Cruze03/CS2_SteamRestrict/releases/tag/v1.1.1
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
