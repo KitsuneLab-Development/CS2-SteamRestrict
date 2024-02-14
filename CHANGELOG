@@ -1,3 +1,8 @@
+-- 2024. 02. 14 - v1.1.3
+
+- fix: Server lag on player connect
+- fix: Checking restrictions for bots
+
 -- 2023. 10. 10 - v1.1.0
 
 - Added option to filter Trade banned players
